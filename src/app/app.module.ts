@@ -24,3 +24,5 @@ import { UserRegisterComponent } from './user/register/user.register/user.regist
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export const CONST_IP = 'http://localhost:4200'
