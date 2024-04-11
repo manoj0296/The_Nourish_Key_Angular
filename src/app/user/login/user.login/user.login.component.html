@@ -8,16 +8,16 @@
       <div class="form">
         <div class="form-group">
           <label for="">User Name</label>
-          <input type="email" class="form-control">
+          <input [(ngModel)]="loginRequest.username" type="email" class="form-control" placeholder="Enter username">
         </div>
         <div class="form-group">
           <label for="">Pasword</label>
-          <input type="password" class="form-control">
+          <input [(ngModel)]="loginRequest.password" type="password" class="form-control" placeholder="Enter password">
         </div>
 
         <div style="margin-top: 10px" class="form-group">
-          <button class="btn btn-success">Login</button>
-          <a class="btn btn-warning float-end" routerLink="/user-register">Register</a>
+          <button (click)="onLogin()" class="btn btn-success">Login</button>
+          <a routerLink="/user-register" class="btn btn-warning float-end">Register</a>
         </div>
       </div>
     </div>

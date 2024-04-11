@@ -1,6 +1,5 @@
 <h1>User Register</h1>
 
-
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
@@ -9,19 +8,25 @@
       <div class="form">
         <div class="form-group">
           <label for="">User Name</label>
-          <input type="text" class="form-control">
+          <input [(ngModel)]="registerRequest.username" type="text" class="form-control" placeholder="Enter your user name">
         </div>
         <div class="form-group">
           <label for="">Email</label>
-          <input type="email" class="form-control">
+          <input [(ngModel)]="registerRequest.email" type="email" class="form-control" placeholder="Enter your email address">
         </div>
         <div class="form-group">
           <label for="">Pasword</label>
-          <input type="password" class="form-control">
+          <input [(ngModel)]="registerRequest.password" type="password" class="form-control" placeholder="Enter your password">
         </div>
+        <div class="form-group">
+          <label for="">User Roles</label>
+          <select [(ngModel)]="role_name" class="form-control">
+              <option *ngFor="let role_type of roles" [value]="role_type.id">{{role_type.name}}</option>
+          </select>
+      </div>
 
         <div style="margin-top: 10px" class="form-group">
-          <button class="btn btn-success">Register</button>
+          <button (click)="onRegistration()" class="btn btn-success">Register</button>
           <a routerLink="/user-login" class="btn btn-danger float-end">Cancel</a>
         </div>
       </div>

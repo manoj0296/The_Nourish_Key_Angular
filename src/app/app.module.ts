@@ -6,16 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user/login/user.login/user.login.component';
 import { UserRegisterComponent } from './user/register/user.register/user.register.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
+    NgMultiSelectDropDownModule.forRoot(),
     NgbModule
   ],
   providers: [
@@ -25,4 +33,4 @@ import { UserRegisterComponent } from './user/register/user.register/user.regist
 })
 export class AppModule { }
 
-export const CONST_IP = 'http://localhost:4200'
+export const CONST_IP = 'http://localhost:8080'
