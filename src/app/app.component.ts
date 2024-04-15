@@ -15,7 +15,7 @@ export class AppComponent {
     @Inject(PLATFORM_ID)
     private platformId: Object) {
     if(isPlatformBrowser(this.platformId))
-      { sessionStorage.setItem('NAV_BAR_HIDE', '1');}
+      { sessionStorage.setItem('NAV_BAR_HIDE', '0');}
   }
 
   public showNavbar() {

@@ -7,14 +7,15 @@ import { UserService } from '../../user.service';
   styleUrl: './user.list.component.css',
 })
 export class UserListComponent {
-  users: any[]
+  users = [];
+  myData = "my data"
 
   constructor (
     private userService: UserService
   ) {
     this.userService.getAllUsers()
       .subscribe(response => {
-        this.users = [response];
+        this.users = response['users'];
       })
 
     console.log(this.users)
