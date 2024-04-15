@@ -17,11 +17,19 @@ export class UserService {
     return this.http.post(this.url + '/signin', loginRequest, { withCredentials: true })
   }
 
+  logoutUser() {
+    return this.http.post(this.url + '/signout', null, { withCredentials: true })
+  }
+
   registerUser(registerRequest: RegisterRequest) {
     return this.http.post(this.url + '/signup', registerRequest, { withCredentials: true })
   }
 
   getUserRoles() {
-    return this.http.get(this.url + "/user_roles");
+    return this.http.get(this.url + "/userRoles");
+  }
+
+  getAllUsers() {
+    return this.http.get(this.url + "/users")
   }
 }

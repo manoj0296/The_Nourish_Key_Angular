@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../user.service';
 import { LoginRequest } from '../../payload/login.request';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-login',
@@ -16,6 +17,7 @@ export class UserLoginComponent {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
+    private toast: ToastrService
   ) {
     this.loginRequest = new LoginRequest();
   }
@@ -24,21 +26,43 @@ export class UserLoginComponent {
 
   onLogin() {
     if (this.loginRequest.username.length == 0) {
-      alert('enter valid username')
+      this.toast.warning('enter valid username', 'Login')
     } else if (this.loginRequest.password.length == 0) {
-      alert('enter valid password')
+      this.toast.warning('enter valid password', 'Login')
     } else {
       this.userService
         .loginUser(this.loginRequest)
         .subscribe(response => {
           console.log(response)
           if (response['message'] == 'Success') {
-            alert('User logged in successfully !')
-            this.router.navigate(['/user-login'])
+            this.toast.success('User logged in successfully !', 'Login')
+            this.router.navigate(['/home'])
           } else {
-            alert(response['error'])
+            this.toast.error(response['error'])
           }
         })
+    }
+  }
+
+  onKeydown(event) {
+    if (event.key === "return") {
+      if (this.loginRequest.username.length == 0) {
+        this.toast.warning('enter valid username', 'Login')
+      } else if (this.loginRequest.password.length == 0) {
+        this.toast.warning('enter valid password', 'Login')
+      } else {
+        this.userService
+          .loginUser(this.loginRequest)
+          .subscribe(response => {
+            console.log(response)
+            if (response['message'] == 'Success') {
+              this.toast.success('User logged in successfully !', 'Login')
+              this.router.navigate(['/home'])
+            } else {
+              this.toast.error(response['error'])
+            }
+          })
+      }
     }
   }
 }

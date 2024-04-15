@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
+
     <div class="login">
 
       <div class="form">
@@ -16,11 +17,13 @@
         </div>
 
         <div style="margin-top: 10px" class="form-group">
-          <button (click)="onLogin()" class="btn btn-success">Login</button>
+          <button (keydown)="onKeydown($event)" (click)="onLogin()" class="btn btn-success">Login</button>
           <a routerLink="/user-register" class="btn btn-warning float-end">Register</a>
         </div>
       </div>
+
     </div>
+
   </div>
   <div class="col-md-4"></div>
 </div>

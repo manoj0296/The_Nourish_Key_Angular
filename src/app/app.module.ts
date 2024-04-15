@@ -10,20 +10,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { HomeComponent } from './home/home/home.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserListComponent } from './user/list/user.list/user.list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     UserRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
     NgMultiSelectDropDownModule.forRoot(),
+    ToastrModule.forRoot(),
     NgbModule
   ],
   providers: [
